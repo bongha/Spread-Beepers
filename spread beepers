@@ -1,0 +1,36 @@
+from karel.stanfordkarel import *
+
+def main():
+    move()
+    pick_beeper()
+    while beepers_present():
+        
+        spread_beeper()
+        back_to_the_pile()
+        pick_beeper()
+    put_beeper()
+    go_back()
+
+def spread_beeper():
+    
+    while beepers_present():
+        move()
+    put_beeper()
+
+def back_to_the_pile():
+    go_back()
+    move()
+    
+def go_back():
+    turn_around()
+    while front_is_clear():
+        move()
+    turn_around()
+    
+def turn_around():
+    for i in range(2):
+        turn_left()
+
+
+if __name__ == '__main__':
+    main()
